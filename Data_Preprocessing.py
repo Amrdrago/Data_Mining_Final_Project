@@ -21,6 +21,10 @@ print(data.head(10).to_string())
 # Replace the original numerical columns with scaled ones
 data_encoded[numerical_cols] = data_scaled
 
+# Replace gender_Male with 1 and gender_Female with 0
+data_encoded['gender_Female'] = (data_encoded['gender_Female'] == 1).astype(int)
+data_encoded['gender_Male'] = (data_encoded['gender_Male'] == 1).astype(int)
+
 data_encoded.drop('gender_Other', axis=1, inplace=True)
 
 # Save preprocessed data to a new CSV file
