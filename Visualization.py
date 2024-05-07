@@ -1,14 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Step 1: Load the CSV file
-
-# Select Your CSV file that you want to Visualize
-
-# df = pd.read_csv('diabetes_prediction_dataset.csv')           #This is the RAW Data
-
-# df = pd.read_csv('preprocessed_diabetes_dataset.csv')      #This is the Preprocessed Data
-
+df = pd.read_csv('preprocessed_diabetes_dataset.csv')      #This is the Preprocessed Data
 
 print("Column Names:", df.columns)
 
@@ -30,4 +23,14 @@ for i in range(len(columns)) :
         plt.xlabel(x_col)
         plt.ylabel(y_col)
         plt.title('Scatter Plot: {} vs {}'.format(x_col, y_col))
+
+        # Add statistical summaries
+        correlation_coefficient = df[[x_col, y_col]].corr().iloc[0, 1]
+
+        # Print statistical summaries
+        print('Scatter Plot: {} vs {}'.format(x_col, y_col))
+        print('Correlation: {:.2f}'.format(correlation_coefficient))
+        print('Mean {}: {:.2f}, Std {}: {:.2f}'.format(x_col, x.mean(), x_col, x.std()))
+        print('Mean {}: {:.2f}, Std {}: {:.2f}'.format(y_col, y.mean(), y_col, y.std()))
+
         plt.show()
