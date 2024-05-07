@@ -31,4 +31,4 @@ data_sample.to_csv('k-medoid_algo_sample.csv', index=False)
 
 # Calculate silhouette score
 silhouette_avg = silhouette_score(data_sample, cluster_labels)
-print("Silhouette Score:", silhouette_avg)
+print("\n\nSilhouette Score:", silhouette_avg)
