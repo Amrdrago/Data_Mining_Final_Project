@@ -32,3 +32,14 @@ data_sample.to_csv('k-medoid_algo_sample.csv', index=False)
 # Calculate silhouette score
 silhouette_avg = silhouette_score(data_sample, cluster_labels)
 print("\n\nSilhouette Score:", silhouette_avg)
+
+
+
+
+# Here's how it's calculated for a single data point:
+
+# a(i): The average distance between the data point and all other points in the same cluster. This represents cohesion.
+
+# b(i): The smallest average distance between the data point and all points in any other cluster, of which the data point is not a member. This represents separation.
+
+# s(i): The silhouette score for the data point is then given by (b(i) - a(i)) / max(a(i), b(i)).
