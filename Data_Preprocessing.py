@@ -29,8 +29,7 @@ data_encoded[numerical_cols] = data_scaled
 
 # Remove unnecessary columns
 
-
-columns_to_drop = ['gender_Other','smoking_history_not current', 'smoking_history_never', 'smoking_history_former', 'smoking_history_ever', 'smoking_history_current', 'gender_Female', 'gender_Male']  # Replace 'Column1', 'Column2' with the columns you want to drop
+columns_to_drop = ['smoking_history_not current', 'smoking_history_never', 'smoking_history_former', 'smoking_history_ever', 'smoking_history_current','gender_Other']  # Replace 'Column1', 'Column2' with the columns you want to drop
 data_encoded.drop(columns_to_drop, axis=1, inplace=True)
 
 # Save preprocessed data to a new CSV file
