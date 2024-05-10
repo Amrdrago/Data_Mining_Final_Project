@@ -10,7 +10,7 @@ sample_data = data.sample(frac=0.1, random_state=42)
 
 # Calculate the correlation matrix for the sample
 corr_matrix = sample_data.corr()
-print(corr_matrix.to_string())
+
 # Plot the heatmap
 plt.figure(figsize=(10, 8))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=0.5)
