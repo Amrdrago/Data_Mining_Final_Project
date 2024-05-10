@@ -8,10 +8,10 @@ data = pd.read_csv('preprocessed_diabetes_dataset.csv')
 
 # Take a random sample (e.g., 20% of the data)
 sample_size = int(0.1 * len(data))  # Adjust the sample size as needed
-data_sample = data.sample(n=sample_size, random_state=3)
+data_sample = data.sample(n=sample_size, random_state=2)
 
 # K-Medoids clustering with 3 clusters
-kmedoids = KMedoids(n_clusters=3, random_state=3)
+kmedoids = KMedoids(n_clusters=2, random_state=2)
 cluster_labels = kmedoids.fit_predict(data_sample)
 cluster_labels += 1
 # Add cluster labels to the sample dataframe
@@ -69,16 +69,3 @@ data_sample.to_csv('k-medoid_algo_sample.csv', index=False)
 # Calculate silhouette score
 silhouette_avg = silhouette_score(data_sample, cluster_labels)
 print("\n\nSilhouette Score:", silhouette_avg)
-
-
-
-
-
-
-# Here's how it's calculated for a single data point:
-
-# a(i): The average distance between the data point and all other points in the same cluster. This represents cohesion.
-
-# b(i): The smallest average distance between the data point and all points in any other cluster, of which the data point is not a member. This represents separation.
-
-# s(i): The silhouette score for the data point is then given by (b(i) - a(i)) / max(a(i), b(i)).
