@@ -37,24 +37,3 @@ print("\nDavies-Bouldin Index:", db_index)
 # Calculate silhouette score
 silhouette_avg = silhouette_score(data_sample, cluster_labels)
 print("\nSilhouette Score:", silhouette_avg)
-
-
-# Here's how it's calculated for a single data point:
-
-# a(i): The average distance between the data point and all other points in the same cluster. This represents cohesion.
-
-# b(i): The smallest average distance between the data point and all points in any other cluster, of which the data point is not a member. This represents separation.
-
-# s(i): The silhouette score for the data point is then given by (b(i) - a(i)) / max(a(i), b(i)).
-
-
-
-# Calculate Cluster Dispersion: Measure the average distance of each point in the cluster to the centroid or using the variance within the cluster.
-
-# Calculate Cluster Separation: his is usually done by computing a distance or dissimilarity metric between the centroids of the two clusters.
-
-# Compute the Davies-Bouldin Index: Finally, compute the Davies-Bouldin Index using the formula:DB = (1 / n) * Σ(max(R_ij + R_ji))
-
-# R_ij is the average distance between cluster i and cluster j.
-
-# The maximum value of (R_ij + R_ji) is chosen for each cluster i.
